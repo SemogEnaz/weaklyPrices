@@ -119,7 +119,7 @@ function Table({ apiArg, items }:
 
     useEffect(() => {
         if (apiArg)
-            fetch(`/${apiArg}`)
+            fetch(`/weaklyPrices/${apiArg}`)
                 .then(res => {
                     if (!res.ok) {
                             setError(true);

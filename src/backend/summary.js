@@ -41,7 +41,7 @@ function getCuratedColes(itemCount) {
     'Meat & Seafood',
   ];
 
-  const dir = './src/scripts/weaklyPrices/coles_catalogue/';
+  const dir = './src/scripts/coles_catalogue/';
 
   return getCuratedCatalogue(catagories, dir, itemCount);
 }

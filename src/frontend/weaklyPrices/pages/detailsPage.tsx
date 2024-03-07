@@ -15,7 +15,7 @@ export default function DetailsPage({ states }: { states: any }) {
     const [categories, setCatagories] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch(`/detailed?brand=${catalogueName}`)
+        fetch(`/weaklyPrices/detailed?brand=${catalogueName}`)
             .then(res => res.json())
             .then(data => setCatagories(data.catagories))
     }, [catalogueName]);
