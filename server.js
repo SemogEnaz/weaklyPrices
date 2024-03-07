@@ -16,16 +16,17 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, frontendDir)));
 
 // Get request to the root directory
-app.get('/', (req, res) => {
+app.get('/weaklyPrices/', (req, res) => {
+  console.log('Sending', path.join(__dirname, frontendDir, 'index.html'));
   res.sendFile(path.join(__dirname, frontendDir, 'index.html'));
 });
 
 // couple of api routes
-app.get('/detailed', detailed);
-app.get('/summary', summary);
+app.get('/weaklyPrices/detailed', detailed);
+app.get('/weaklyPrices/summary', summary);
 
 app.get('*', (req, res) => {
-    res.send("Error!");
+    res.send("Error! No resoruces served at this endpoint");
 })
 
 // Setting up port number

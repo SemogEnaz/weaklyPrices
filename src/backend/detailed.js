@@ -88,7 +88,7 @@ function getCatalogue(
     itemCount, brandDir, catagoryName) {
 
     const reader = new CatalogueReader();
-    const path = `./src/scripts/weaklyPrices/${brandDir}/`;
+    const path = `./src/scripts/${brandDir}/`;
     const allItems = reader.readCsv(path, catagoryName);
     return reader.getTopDrops(allItems, itemCount);
 }
@@ -107,7 +107,7 @@ function getCatagoryPage(itemCount, pageCount, brandDir, catagoryName) {
 */
 function getCatagoryNames(dir){
 
-    const path = `./src/scripts/weaklyPrices/${dir}/`;
+    const path = `./src/scripts/${dir}/`;
 
     const files = execSync(`ls ${path}`)
     const fileNames = files.toString().replaceAll('.csv', '').split('\n');
