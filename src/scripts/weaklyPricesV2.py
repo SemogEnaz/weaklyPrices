@@ -9,14 +9,6 @@ from modules.item import Item
 import requests
 from bs4 import BeautifulSoup
 
-from pyshadow.main import Shadow
-from selenium.webdriver.chrome.options import Options
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, JavascriptException, StaleElementReferenceException
-
 import math
 
 def soup_from_link(link: str) -> BeautifulSoup:
@@ -250,14 +242,18 @@ def print_loading_bar(current_page_str: str, final_page_str: str):
 
 def get_woolworths_catalogue():
 
+    from pyshadow.main import Shadow
+    import undetected_chromedriver as uc
+    from selenium.webdriver.support.wait import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.common.by import By
+    from selenium.common.exceptions import NoSuchElementException, TimeoutException, JavascriptException
+
     # Selenium documentation
     #   https://www.selenium.dev/documentation/
     #   https://selenium-python.readthedocs.io/index.html
 
-    options = Options() 
-    options.add_argument("--headless=new") # Opens selenium in the background
-
-    driver = webdriver.Chrome(options=options)
+    driver = uc.Chrome(headless=True)
 
     wait = WebDriverWait(driver, timeout=15, poll_frequency=.5)
 
