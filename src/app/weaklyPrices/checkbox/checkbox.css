@@ -1,0 +1,43 @@
+.checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.box {
+    background-color: white;
+    height: 20px;
+    width: 20px;
+
+    border-radius: 3px;
+
+    opacity: 0.8;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    cursor: pointer;
+}
+
+.box.checked {
+    background-color:  rgb(38, 161, 218);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+
+.box.blocked {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.box.blocked:hover {
+    cursor: not-allowed;
+}
+
+.checkbox-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.label {
+    margin-left: 7.5px;
+
+    white-space: nowrap;
+}

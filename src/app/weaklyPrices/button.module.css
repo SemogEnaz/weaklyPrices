@@ -1,0 +1,75 @@
+.button, .expandable {
+    width: 400px;
+    height: 40px;
+    border-radius: 16px;
+    margin: 10px;
+
+    font-size: x-large;
+    text-justify: center;
+    text-align: center;
+    font-weight: bold;
+
+    background-color: #000080;
+    color: #FFFFFF;
+    border-radius: 8px;
+    
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+
+.button:hover {
+    background-color: #0000A6; /* Slightly lighter blue */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #000080;
+}
+
+.expandable { 
+    background-color: black;
+    border: 2px solid white;
+}
+
+@media (max-width: 750px) {
+    .button, .expandable {
+        width: 300px;
+    }
+}
+
+/*
+@layer components{
+
+    .button, .button-top, .expandable {
+    @apply
+        w-[300px] m-2
+        bg-white rounded-lg
+        text-black text-center font-bold
+
+        md:w-[600px]
+        md:h-10
+        md:text-3xl
+        md:rounded-2xl
+    }
+
+    .button, .button-top {
+        @apply
+            hover:bg-gray-200
+            active:bg-white
+    }
+
+    .expandable {
+        @apply
+            bg-black border-white border-2
+            text-white
+            transition-transform 
+    }
+
+    .button-top {
+        @apply
+            mt-8
+            md:mt-[60px]
+    }
+}
+*/

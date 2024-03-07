@@ -1,0 +1,177 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 500px;
+    margin-bottom: 40px;
+}
+
+.details {
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 10px;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 5px;
+}
+
+.title > h2 {
+    max-width: 100%;
+
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.brand {
+    text-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+    font-size: 150px;
+    line-height: 120px;
+}
+
+.validDates {
+    font-weight: bolder;
+}
+
+.card-content {
+    /* 325 is the smallest height of a card */
+    min-height: 200px;
+    max-height: 0px;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px;
+
+    border: 6px solid #000080;
+    border-right: 0px;
+    border-left: 0px;
+    border-radius: 6px;
+
+    position: relative;
+
+    transition: max-height 1s ease-in-out;
+}
+
+.card-content.end-height {
+    max-height: 1000px;
+}
+
+/* Pseudo element code taken from chatGPT*/
+.card-content.skeleton::before, .card-content.end-height::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0), 
+        #D9B99B
+    ); /* Example gradient */
+
+    z-index: 1; /* Ensures the overlay is above the content */
+}
+
+.card-content.end-height::before {
+    backdrop-filter: blur(3px);
+}
+
+.card-content.end-height::before {
+    pointer-events: none;
+    animation: invisible 0.25s 0.9s ease-in-out forwards;
+}
+
+@keyframes v1sible {
+    from { opacity: 0; }
+    to {opacity: 1;}
+}
+
+/* Since the pseudo element is used to blur and create the 
+    gradient, we make it invisible, effectively making the
+    background effects fade as well */
+@keyframes invisible {
+    from { opacity: 1; } 
+    to { opacity: 0; }
+}
+
+/* Removing effects by manualy animating properties */
+@keyframes clear {
+    from {
+        backdrop-filter: blur(2px);
+        background: linear-gradient(
+            to bottom, 
+            rgba(255, 255, 255, 0),
+            rgba(255, 233, 154, 1)
+        );
+    } to { 
+        backdrop-filter: blur(0px); 
+        background: linear-gradient(
+            to bottom, 
+            rgba(255, 255, 255, 0), 
+            rgba(255, 233, 154, 0)
+        );
+    }
+}
+
+.w-heading, .item, .name, .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.w-heading * {
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.item { font-weight: 600; }
+
+.name, .price { height: 100%; }
+
+.name {
+    width: 66%;
+    text-align: center;
+
+    line-height: 15px;
+}
+
+.divider {
+    height: 100%;
+    width: 4px;
+    border-radius: 1px 1px 0px 0px;
+
+    background-color: #000080;
+}
+
+.price { width: 33%; }
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+@media (max-width: 850px) {
+    
+    .brand {
+        font-size: 120px;
+        line-height: 100px;
+    }
+
+    .card {
+        max-width: 95vw;
+    }
+}

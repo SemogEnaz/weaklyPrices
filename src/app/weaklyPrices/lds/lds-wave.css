@@ -1,0 +1,47 @@
+/*
+    Loading screen wave animation
+
+    html:
+        <div class='wave-container>
+            <!-- content you want the animation to
+            appear over -->
+        </div>
+
+    source: chatGPT and mdn doc for repeating linear
+            gradient
+*/
+
+@keyframes waveAnimation {
+    0% {
+        background-position: 0% 0%;
+    } 100% {
+        background-position: 200px 0%;
+    }
+}
+
+.lds-wave {
+    position: relative;
+    overflow: hidden;
+    cursor: not-allowed;
+}
+
+.lds-wave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    background: repeating-linear-gradient(
+        -45deg,
+        rgba(63, 135, 166, 1),
+        rgba(235, 248, 225, 0) 106.05px,
+        #E8AB6B 141.4px
+        /* width * root(2) * %youWant, here 15% n 20% */
+    ); 
+    background-size: 200px 100%;
+    animation: waveAnimation 2s linear infinite;
+    backdrop-filter: blur(3px);
+}
