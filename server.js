@@ -14,6 +14,7 @@ const frontendDir = 'dist';
 // Directing express to the front end in the /dist dir
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, frontendDir)));
+app.use('/weaklyPrices/assets', express.static(path.join(__dirname, frontendDir, 'assets')));
 
 // Get request to the root directory
 app.get('/weaklyPrices/', (req, res) => {
@@ -26,7 +27,7 @@ app.get('/weaklyPrices/detailed', detailed);
 app.get('/weaklyPrices/summary', summary);
 
 app.get('*', (req, res) => {
-    res.send("Error! No resoruces served at this endpoint");
+    res.send("Error! Caught by '*' route in server.js");
 })
 
 // Setting up port number
